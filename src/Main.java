@@ -2,13 +2,15 @@
 //how to save the date
 // organization of code
 
-import dao.Student;
 import data.MyData;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
+import static dao.Student.newStudent;
+
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         MyData myData = new MyData();
 
         System.out.println(
@@ -59,32 +61,7 @@ public class Main {
             }
         }while (true);
     }
-    public static Student newStudent(){
-        Student student = new Student();
 
-        Scanner sc = new Scanner(System.in);
-
-        System.out.println("Enter id:");
-        int stId = sc.nextInt();
-        System.out.println("Enter First Name:");
-        String firstName = sc.next();
-        System.out.println("Enter Last Name:");
-        String lastName = sc.next();
-        System.out.println("Enter Date Of Birth:");
-        String dateOfBirth = sc.next();
-        System.out.println("Enter Gender:");
-        String gender = sc.next();
-        System.out.println("Enter Grade:");
-        int grade = sc.nextInt();
-        student.setId(stId);
-        student.setFirstName(firstName);
-        student.setLastName(lastName);
-        student.setDateOfBirth(dateOfBirth);
-        student.setGender(gender);
-        student.setGrade(grade);
-
-        return student;
-    }
 }
 
 
