@@ -14,9 +14,7 @@ public class SqlConnection {
             con = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/class2", "root", "1989tlh27");
             return con;
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } catch (ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
     }

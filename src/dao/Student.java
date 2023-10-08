@@ -7,7 +7,6 @@ public class Student {
     String firstName;
     String lastName;
     String dateOfBirth;
-    String registerDate;
     String gender;
     int grade;
 
@@ -42,15 +41,6 @@ public class Student {
     public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
-
-    public String getRegisterDate() {
-        return registerDate;
-    }
-
-    public void setRegisterDate(String registerDate) {
-        this.registerDate = registerDate;
-    }
-
     public String getGender() {
         return gender;
     }
