@@ -41,10 +41,7 @@ from
     <last-used-providers />
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files>
-      <object connection-id="a3c38419-f5cf-45b5-9bd7-147ba44c4e09" object-ref="consoles/MySql" />
-      <object connection-id="a3c38419-f5cf-45b5-9bd7-147ba44c4e09" object-ref="schemas/class2/tables/student" />
-    </open-files>
+    <open-files />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
     <filter-actions connection-id="a3c38419-f5cf-45b5-9bd7-147ba44c4e09" dataset="class2.student" active-filter-id="" />

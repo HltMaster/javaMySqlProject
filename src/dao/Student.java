@@ -1,22 +1,14 @@
 package dao;
 
 import java.util.Scanner;
+//import java.time.*;
 
 public class Student {
-    int id;
     String firstName;
     String lastName;
     String dateOfBirth;
     String gender;
     int grade;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getFirstName() {
         return firstName;
@@ -46,7 +38,19 @@ public class Student {
     }
 
     public void setGender(String gender) {
-        this.gender = gender;
+        boolean run = true;
+        do {
+            if (gender.equals("male")|| gender.equals("female")){
+                this.gender = gender;
+                run = false;
+            }
+            else{
+                System.out.println("You can only use 'male' or 'female' \n.TRY AGAIN!!");
+            Scanner sc = new Scanner(System.in);
+            gender = sc.next();
+            }
+        }while (run);
+
     }
 
     public int getGrade() {
@@ -58,11 +62,8 @@ public class Student {
     }
     public static Student newStudent(){
         Student student = new Student();
-
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Enter id:");
-        int stId = sc.nextInt();
         System.out.println("Enter First Name:");
         String firstName = sc.next();
         System.out.println("Enter Last Name:");
@@ -73,7 +74,6 @@ public class Student {
         String gender = sc.next();
         System.out.println("Enter Grade:");
         int grade = sc.nextInt();
-        student.setId(stId);
         student.setFirstName(firstName);
         student.setLastName(lastName);
         student.setDateOfBirth(dateOfBirth);

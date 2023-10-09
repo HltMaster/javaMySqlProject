@@ -6,7 +6,6 @@ import data.MyData;
 
 import java.sql.SQLException;
 import java.util.Scanner;
-
 import static dao.Student.newStudent;
 
 public class Main {

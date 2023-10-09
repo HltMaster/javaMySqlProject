@@ -2,7 +2,6 @@ package data;
 
 import dao.Student;
 import db.SqlConnection;
-
 import java.sql.*;
 import java.util.Scanner;
 
@@ -48,23 +47,19 @@ public class MyData {
 
             String query = """
                         insert into student\s
-                        (ID,FIRST_NAME,LAST_NAME,DATE_OF_BIRTH,GENDER,GRADE)
-                        values('%d','%s','%s','%s','%s','%d')
-                        """.formatted(student.getId(),
-                    student.getFirstName(),
+                        (FIRST_NAME,LAST_NAME,DATE_OF_BIRTH,GENDER,GRADE)
+                        values('%s','%s','%s','%s','%d')
+                        """.formatted(student.getFirstName(),
                     student.getLastName(),
                     student.getDateOfBirth(),
                     student.getGender(),
                     student.getGrade());
 
                 int result = stmt.executeUpdate(query);
-            if (result > 0) {
+            if (result > 0)
                 System.out.println("successfully inserted");
-            }
             else
-                System.out.println(
-                        "unsuccessful insertion ");
-
+                System.out.println("unsuccessful insertion ");
             con.close();
         }
         catch (SQLException e) {
@@ -86,11 +81,23 @@ public class MyData {
             p = con.prepareStatement(sql);
             rs = p.executeQuery();
 
+            System.out.println("""
+            ------------------------------------------------------------------------------------
+            |ID\t| FIRST_NAME\t| LAST_NAME\t| DATE_OF_BIRTH\t| REGISTER_DATE\t| GENDER\t| GRADE|
+            ------------------------------------------------------------------------------------
+            """
+            );
+
             while (rs.next()) {
 
-                String name = rs.getString("FIRST_NAME");
+                id = rs.getInt("ID");
+                String firName = rs.getString("FIRST_NAME");
+                String lasName = rs.getString("LAST_NAME");
+                String dob = rs.getString("DATE_OF_BIRTH");
+                Date regiDate = rs.getDate("REGISTER_DATE");
+                String gender = rs.getString("GENDER");
                 int grade =rs.getInt("GRADE");
-                System.out.println(id + "\t" + name +"\t"+ grade);
+                System.out.println(id + "\t" + firName +"\t"+ lasName+"\t"+dob+"\t"+regiDate+"\t"+gender+"\t"+grade);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -113,7 +120,7 @@ public class MyData {
                 2.Last Name
                 3.Date Of Birth
                 4.Gender
-                5.
+                5.Grade
                 6.Quit
                 ----------------
                 ENTER A FIELD TO CHANGE.
@@ -167,13 +174,9 @@ public class MyData {
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter id:");
-        int id  = sc.nextInt();
-
-        String query = "DELETE FROM student WHERE ID = %d ".formatted( id);
+        int id = sc.nextInt();
+        String query = "DELETE FROM student WHERE ID = %d ".formatted(id);
         stmt.executeUpdate(query);
-
-
-
     }
 }
 
